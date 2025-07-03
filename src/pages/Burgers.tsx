@@ -2,20 +2,27 @@ import { useEffect, useState } from "react";
 import BurgerCard from "../components/BurgerCard";
 
 export default function Home() {
-  const [burgers, setBurgers] = useState([]);
+  const [burgers, setBurgers] = useState<Burger[]>([]);
+
+  type Burger = {
+    id: number;
+    name: string;
+    price: string;
+    description: string;
+    caption?: string;
+    image_url: string;
+    imageAllergens?: string;
+  };
 
   useEffect(() => {
-    fetch(
-      "https://kcquftnighqxkkgquwhn.supabase.co/rest/v1/Burgers?select=*",
-      {
-        headers: {
-          apikey:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcXVmdG5pZ2hxeGtrZ3F1d2huIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTQxNjEsImV4cCI6MjA2NjU5MDE2MX0.HZBHRPP6_ypOBZzG8udm_m8g49TSD7oul0mFXJOyePk",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcXVmdG5pZ2hxeGtrZ3F1d2huIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTQxNjEsImV4cCI6MjA2NjU5MDE2MX0.HZBHRPP6_ypOBZzG8udm_m8g49TSD7oul0mFXJOyePk",
-        },
-      }
-    )
+    fetch("https://kcquftnighqxkkgquwhn.supabase.co/rest/v1/Burgers?select=*", {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcXVmdG5pZ2hxeGtrZ3F1d2huIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTQxNjEsImV4cCI6MjA2NjU5MDE2MX0.HZBHRPP6_ypOBZzG8udm_m8g49TSD7oul0mFXJOyePk",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcXVmdG5pZ2hxeGtrZ3F1d2huIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTQxNjEsImV4cCI6MjA2NjU5MDE2MX0.HZBHRPP6_ypOBZzG8udm_m8g49TSD7oul0mFXJOyePk",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("Hamburguesas desde Supabase:", data); // <-- Agregado
@@ -54,7 +61,6 @@ export default function Home() {
         <h2 className="text-3xl font-lobster text-[#e63946] mb-4">
           Dónde Estamos
         </h2>
-        
       </div>
     </section>
   );

@@ -25,7 +25,6 @@ function BurgerCard({
   description,
   caption,
   imageUrl,
-  imageAllergens,
 }: BurgerCardProps) {
   return (
     <div className="w-full max-w-sm rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-md transform transition duration-300 hover:shadow-2xl hover:-translate-y-1">
