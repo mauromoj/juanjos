@@ -2,6 +2,7 @@ import Navbar from "../src/pages/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Burgers from "./pages/Burgers";
 import Starters from "./pages/Starters";
+import AboutUs from "../src/pages/AboutUs";
 import Footer from "../src/pages/Footer";
 import '../src/App.css';
 
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Burgers />} />
           <Route path="/entrantes" element={<Starters />} />
+          <Route path="/nosotros" element={<AboutUs />} />
         </Routes>
       </main>
       <Footer />
