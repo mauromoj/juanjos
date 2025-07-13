@@ -10,7 +10,7 @@ import { GiSesame } from "react-icons/gi";
 import { PiBeerBottle } from "react-icons/pi";
 import { GiPeanut } from "react-icons/gi";
 
-type BurgerCardProps = {
+type CardProps = {
   name: string;
   price: string;
   description: string;
@@ -19,13 +19,13 @@ type BurgerCardProps = {
   imageAllergens?: string;
 };
 
-function BurgerCard({
+function Card({
   name,
   price,
   description,
   caption,
   imageUrl,
-}: BurgerCardProps) {
+}: CardProps) {
   return (
     <div className="w-full max-w-sm rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-md transform transition duration-300 hover:shadow-2xl hover:-translate-y-1">
       <div className="relative overflow-hidden">
@@ -64,4 +64,4 @@ function BurgerCard({
   );
 }
 
-export default BurgerCard;
+export default Card;
